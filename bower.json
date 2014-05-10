@@ -1,0 +1,22 @@
+{
+  "name": "2014-04-chatterbox-server",
+  "version": "0.0.0",
+  "homepage": "https://github.com/awwest/2014-04-chatterbox-server",
+  "authors": [
+    "Hack Reactor Students <accounts@hackreactor.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "momentjs": "~2.6.0",
+    "underscore": "~1.6.0"
+  }
+}

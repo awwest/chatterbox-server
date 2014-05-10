@@ -11,9 +11,13 @@ var fs = require('fs');
 var messages = {results: []};
 
 var storeMessage = function(data) {
+
   var temp = JSON.parse(data);
-  console.log("This is temp: "+ temp + " ...");
+  // console.log("This is temp: "+ temp + " ...");
   temp.createdAt = new Date();
+  if (temp.hasOwnProperty('message')) {
+    temp.text = temp.message;
+  }
 
   fs.appendFile('messages.txt', JSON.stringify(temp) + ',', function (err) {
     if (err) throw err;
@@ -22,12 +26,14 @@ var storeMessage = function(data) {
 };
 
 var readMessages = function (response) {
-  fs.readFile('messages.txt', "utf-8", function (err, data){
+  fs.readFile('messages.txt', 'utf-8', function (err, data){
     if (err) throw err;
     messages.results = JSON.parse('[' + data.slice(0, data.length - 1) + ']');
     // console.dir(data);
     // console.dir(messages);
-    return response.end(JSON.stringify(messages));
+    response.end(JSON.stringify(messages));
+    // response.write(JSON.stringify(messages));
+    // response.end();
   });
 };
 
@@ -43,6 +49,7 @@ var handleRequest = function(request, response) {
   var body = '';
 
   var pathname = url.parse(request.url).pathname;
+  // console.log('pathname')
 
   if (pathname.slice(0, 8) !== '/classes') {
     statusCode = 404;
@@ -81,6 +88,7 @@ var handleRequest = function(request, response) {
    * up in the browser.*/
   // response.write(messages);
   readMessages(response);
+
 };
 
 

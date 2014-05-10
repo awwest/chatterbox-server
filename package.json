@@ -5,10 +5,23 @@
   "author": "Hack Reactor",
   "license": "Copyright 2013, Hack Reactor. All rights reserved.",
   "dependencies": {
-    "chai": "^1.9.1"
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2",
+    "underscore": "^1.6.0"
   },
   "devDependencies": {
     "request": "^2.34.0",
     "chai": "^1.9.0"
-  }
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awwest/2014-04-chatterbox-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/awwest/2014-04-chatterbox-server/issues"
+  },
+  "homepage": "https://github.com/awwest/2014-04-chatterbox-server"
 }
